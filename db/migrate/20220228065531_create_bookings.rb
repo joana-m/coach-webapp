@@ -4,8 +4,8 @@ class CreateBookings < ActiveRecord::Migration[6.1]
       t.references :user, null: false, foreign_key: true
       t.references :coach_session, null: false, foreign_key: true
       t.integer :total_amount
-      t.integer :date_start
-      t.integer :date_end
+      t.date :date_start
+      t.date :date_end
 
       t.timestamps
     end
