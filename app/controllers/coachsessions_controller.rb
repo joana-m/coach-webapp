@@ -1,6 +1,7 @@
 class CoachsessionsController < ApplicationController
 
   def index
+    @coachsessions = CoachSession.where(params[:type_of_activity])
   end
 
   def show
