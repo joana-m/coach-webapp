@@ -4,6 +4,9 @@ class CoachSession < ApplicationRecord
   validates :session_name, :type_of_activity, :price_per_day, presence: true
   validates :price_per_day, numericality: true
   validates :type_of_activity, inclusion: {in: ACTIVITIES}
+  has_one_attached :main_photo
+  has_many_attached :additional_photos
+  validates :main_photo, :additional_photos, presence: true
 end
 
 # CoachSession.create(session_name:"Bench Press Training", type_of_activity:"Weight-Lifting", price_per_day: 30, user_id: 4)
