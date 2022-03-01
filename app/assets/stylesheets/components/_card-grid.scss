@@ -1,0 +1,16 @@
+.photos {
+  display: flex;
+  .additional-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+    margin-left: 16px;
+  }
+
+  .main-photo {
+
+    img {
+      height: 100%;
+    }
+  }
+}
