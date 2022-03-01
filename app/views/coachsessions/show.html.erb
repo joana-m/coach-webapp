@@ -1,38 +1,58 @@
+<html>
 
-<div class="container">
-  <div class="intro">
-    <h1> <%= @coachsession.session_name %></h1>
-    <p><%= @coachsession.type_of_activity %></p>
-  </div>
-</div>
+  <body>
+
+    <div class="container">
+      <div class="intro">
+        <h1> <%= @coachsession.session_name %></h1>
+        <p><%= @coachsession.type_of_activity %></p>
+      </div>
 
 
-<div class="container">
-  <div class="photos">
-    <div class="main-photo">
-      <%# <%= cl_image_tag @coachsession.main_photo.key %>
-      <%= image_tag "weightlifter_1.jpeg", width: 500, crop: :fill %>
+      <div>
+        <div class="photos">
+          <div class="main-photo">
+            <%# <%= cl_image_tag @coachsession.main_photo.key %>
+            <%= image_tag "weightlifter_1.jpeg", width: 500, crop: :fill %>
+          </div>
+
+          <div class="additional-photos">
+            <%# <%= cl_image_tag @coachsession.additional_photos.key %>
+            <%= image_tag "calis_1.jpeg", width: 300, height: 200, crop: :fill %>
+            <%= image_tag "calis_2.jpeg", width: 300, height: 200, crop: :fill %>
+            <%= image_tag "calis_2.jpeg", width: 300, height: 200, crop: :fill %>
+            <%= image_tag "calis_2.jpeg", width: 300, height: 200, crop: :fill %>
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+        <div class="description" class="col-6">
+          <p>Training with name_of_the_trainer</p>
+          <%= @coachsession.description %>
+        </div>
+
+        <div class="booking-card">
+          <div class class="col-6">
+            <div>
+              <p>Start date</p>
+            </div>
+            <div>
+              <p>End date</p>
+            </div>
+          </div>
+
+          <div>
+            <p>Total amount</p>
+          </div>
+
+          <div class="btn-flat">
+            <p>Button</p>
+          </div>
+        </div>
+
     </div>
+  </body>
 
-    <div class="additional-photos">
-      <%# <%= cl_image_tag @coachsession.additional_photos.key %>
-      <%= image_tag "calis_1.jpeg", width: 300, height: 200, crop: :fill %>
-      <%= image_tag "calis_2.jpeg", width: 300, height: 200, crop: :fill %>
-      <%= image_tag "calis_2.jpeg", width: 300, height: 200, crop: :fill %>
-      <%= image_tag "calis_2.jpeg", width: 300, height: 200, crop: :fill %>
-    </div>
-  </div>
-</div>
-
-
-<div class="container">
-  <div class="description">
-    <p>Training with name_of_the_trainer</p>
-    <%= @coachsession.description %>
-  </div>
-
-    <div class="booking-card">
-      <p>Start date</p>
-      <p>End date</p>
-  </div>
-</div>
+</html>
