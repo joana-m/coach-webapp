@@ -2,6 +2,13 @@ class CoachsessionsController < ApplicationController
 
   def index
     @coachsessions = CoachSession.where(type_of_activity: params[:activities])
+
+    @markers = @coachsessions.geocoded.map do |coachsession|
+      {
+        lat: coachsession.latitude,
+        lng: coachsession.longitude
+      }
+    end
   end
 
   def show
