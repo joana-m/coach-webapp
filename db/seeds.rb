@@ -31,56 +31,56 @@ coach = User.last ? User.last : User.create!(email: "mel@gmail.com", password: "
 end
 
 # # seed 2
-%w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
-  file_two = File.open(Rails.root.join("app/assets/images/#{type}_2.jpeg"))
-  session = CoachSession.new(session_name: "Your #{type} coach in town!", type_of_activity: CoachSession::ACTIVITIES[idx], description: "10 years experience as a coach", price_per_day: 50, user: coach)
-  session.main_photo.attach(io: file_two, filename: "coach.jpeg")
-  4.times do |i|
-    subfile_two = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 3}.jpeg"))
-    session.additional_photos.attach(io: subfile_two, filename: "coach.jpeg")
-  end
-  session.save!
-  p session
-end
+# %w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
+#   file_two = File.open(Rails.root.join("app/assets/images/#{type}_2.jpeg"))
+#   session = CoachSession.new(session_name: "Your #{type} coach in town!", type_of_activity: CoachSession::ACTIVITIES[idx], description: "10 years experience as a coach", price_per_day: 50, user: coach)
+#   session.main_photo.attach(io: file_two, filename: "coach.jpeg")
+#   4.times do |i|
+#     subfile_two = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 3}.jpeg"))
+#     session.additional_photos.attach(io: subfile_two, filename: "coach.jpeg")
+#   end
+#   session.save!
+#   p session
+# end
 
-# # # seed 3
-%w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
-  file_three = File.open(Rails.root.join("app/assets/images/#{type}_3.jpeg"))
-  session = CoachSession.new(session_name: "Train with me", type_of_activity: CoachSession::ACTIVITIES[idx], description: "#{type} is fun with me!", price_per_day: 45, user: coach)
-  session.main_photo.attach(io: file_three, filename: "coachtwo.jpeg")
-  4.times do |i|
-    subfile_three = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 3}.jpeg"))
-    session.additional_photos.attach(io: subfile_three, filename: "coachtwo.jpeg")
-  end
-  session.save!
-  p session
-end
+# # # # seed 3
+# %w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
+#   file_three = File.open(Rails.root.join("app/assets/images/#{type}_3.jpeg"))
+#   session = CoachSession.new(session_name: "Train with me", type_of_activity: CoachSession::ACTIVITIES[idx], description: "#{type} is fun with me!", price_per_day: 45, user: coach)
+#   session.main_photo.attach(io: file_three, filename: "coachtwo.jpeg")
+#   4.times do |i|
+#     subfile_three = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 3}.jpeg"))
+#     session.additional_photos.attach(io: subfile_three, filename: "coachtwo.jpeg")
+#   end
+#   session.save!
+#   p session
+# end
 
-# # # seed 4
-%w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
-  file_four = File.open(Rails.root.join("app/assets/images/#{type}_4.jpeg"))
-  session = CoachSession.new(session_name: "Train with me", type_of_activity: CoachSession::ACTIVITIES[idx], description: "Doing #{type} is easy with me", price_per_day: 45, user: coach)
-  session.main_photo.attach(io: file_four, filename: "coachthree.jpeg")
-  4.times do |i|
-    subfile_four = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 2}.jpeg"))
-    session.additional_photos.attach(io: subfile_four, filename: "coachthree.jpeg")
-  end
-  session.save!
-  p session
-end
+# # # # seed 4
+# %w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
+#   file_four = File.open(Rails.root.join("app/assets/images/#{type}_4.jpeg"))
+#   session = CoachSession.new(session_name: "Train with me", type_of_activity: CoachSession::ACTIVITIES[idx], description: "Doing #{type} is easy with me", price_per_day: 45, user: coach)
+#   session.main_photo.attach(io: file_four, filename: "coachthree.jpeg")
+#   4.times do |i|
+#     subfile_four = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 2}.jpeg"))
+#     session.additional_photos.attach(io: subfile_four, filename: "coachthree.jpeg")
+#   end
+#   session.save!
+#   p session
+# end
 
-# # seed 5
-%w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
-  file_five = File.open(Rails.root.join("app/assets/images/#{type}_5.jpeg"))
-  session = CoachSession.new(session_name: "Join me for #{type} training", type_of_activity: CoachSession::ACTIVITIES[idx], description: "#{type} is my passion! ", price_per_day: 35, user: coach)
-  session.main_photo.attach(io: file_five, filename: "coachfour.jpeg")
-  4.times do |i|
-    subfile_five = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 2}.jpeg"))
-    session.additional_photos.attach(io: subfile_five, filename: "coachfour.jpeg")
-  end
-  session.save!
-  p session
-end
+# # # seed 5
+# %w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
+#   file_five = File.open(Rails.root.join("app/assets/images/#{type}_5.jpeg"))
+#   session = CoachSession.new(session_name: "Join me for #{type} training", type_of_activity: CoachSession::ACTIVITIES[idx], description: "#{type} is my passion! ", price_per_day: 35, user: coach)
+#   session.main_photo.attach(io: file_five, filename: "coachfour.jpeg")
+#   4.times do |i|
+#     subfile_five = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 2}.jpeg"))
+#     session.additional_photos.attach(io: subfile_five, filename: "coachfour.jpeg")
+#   end
+#   session.save!
+#   p session
+# end
 
 booking = Booking.create!(user: client, coach_session: CoachSession.first, total_amount: 200, date_start: "2020/09/09", date_end: "2020/09/10")
 
