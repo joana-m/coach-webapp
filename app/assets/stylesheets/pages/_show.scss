@@ -4,12 +4,25 @@
 
 .intro p {
   margin-bottom: 15px;
+  font-size: 12px;
+}
+
+.intro {
+  margin: 15px 0px;
 }
 
 .description {
   margin-top: 10px;
   font-weight: 300;
   width: 400px;
+}
+
+.description h3 {
+  font-size: 15px;
+}
+
+.description p {
+  font-size: 12px;
 }
 
 .box-description {

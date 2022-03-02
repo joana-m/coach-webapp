@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 2022_03_02_035314) do
     t.bigint "user_id", null: false
     t.bigint "coach_session_id", null: false
     t.integer "total_amount"
-    t.integer "date_start"
-    t.integer "date_end"
+    t.date "date_start"
+    t.date "date_end"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "status", default: "pending"

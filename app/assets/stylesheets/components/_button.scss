@@ -43,10 +43,14 @@
 
 .btn-booking {
   color: white;
-  padding: 4px 24px;
+  padding: 6px 24px;
   border-radius: 8px;
   text-align: center;
   align-items: center;
   background: #FF715B;
   transition: background 0.3s ease;
+}
+
+.btn-booking p{
+  margin-bottom: 0px;
 }
