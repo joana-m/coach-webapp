@@ -14,9 +14,7 @@
 
 # p "Destroying data..."
 
-client = User.first ? User.first : User.create!(email: "john@gmail.com", password: "123456")
-coach = User.last ? User.last : User.create!(email: "mel@gmail.com", password: "123456")
-
+client = User.first
 # # seed 1
 # %w[surfing weightlifting calisthenics yoga swimming dancing].each_with_index do |type, idx|
 # #   file = File.open(Rails.root.join("app/assets/images/#{type}_1.jpeg"))
@@ -25,6 +23,7 @@ coach = User.last ? User.last : User.create!(email: "mel@gmail.com", password: "
 # #     subfile_one = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 2}.jpeg"))
 # #     session.additional_photos.attach(io: subfile_one, filename: "trainer.jpeg")
 # #   end
+
 # #   session.save!
 # #   p session
 # # end
