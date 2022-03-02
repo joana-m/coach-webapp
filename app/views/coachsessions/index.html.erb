@@ -8,7 +8,7 @@
       <%#= image_tag "calis_1.jpeg", class: "card-img"%>
     <% end %>
     <div>
-      <h5 class="card-title"><%=session.session_name%></h5>
+      <h5 class="card-title"> <%= link_to  session.session_name , coachsession_path(session) %> </h5>
       <p class="card-text"><%=session.description%></p>
       <p class="card-text"><%=session.price_per_day%> $</p>
     </div>
