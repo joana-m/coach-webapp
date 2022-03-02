@@ -13,6 +13,13 @@
   </head>
 
   <body>
+    <% if devise_controller?  %>
+    <% elsif  params[:controller] == "pages"%>
+      <%= render 'shared/home-navbar' %>
+    <% else %>
+      <%= render 'shared/navbar' %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
