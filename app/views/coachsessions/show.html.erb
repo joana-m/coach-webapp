@@ -13,7 +13,7 @@
         <div class="photos">
           <div class="main-photo">
             <%# <%= cl_image_tag @coachsession.main_photo.key %>
-            <%= image_tag "weightlifter_1.jpeg", width: 500, crop: :fill %>
+            <%= image_tag "weightlifting_1.jpeg", width: 500, crop: :fill %>
           </div>
 
           <div class="additional-photos">
@@ -27,10 +27,10 @@
       </div>
 
 
-      <div>
+      <div class="box-description">
         <div class="description" class="col-6">
-          <p>Training with name_of_the_trainer</p>
-          <%= @coachsession.description %>
+          <h3>Training with Nasi</h3>
+          <p><%= @coachsession.description %></p>
         </div>
 
         <div class="booking-card">
@@ -47,8 +47,8 @@
             <p>Total amount</p>
           </div>
 
-          <div class="btn-flat">
-            <p>Button</p>
+          <div class="btn-booking">
+            <p>Book now</p>
           </div>
         </div>
 
