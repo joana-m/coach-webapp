@@ -20,7 +20,7 @@ coach = User.last ? User.last : User.create!(email: "mel@gmail.com", password: "
 # # seed 1
 %w[surfing weightlifting calisthenics yoga swimming dancing].each_with_index do |type, idx|
   file = File.open(Rails.root.join("app/assets/images/#{type}_1.jpeg"))
-  session = CoachSession.new(session_name: "Best #{type} trainer in town!", type_of_activity: CoachSession::ACTIVITIES[idx], description: "2020 the world #{type} champion", price_per_day: 40, user: coach)
+  session = CoachSession.new(session_name: "Best #{type} trainer in town!", type_of_activity: CoachSession::ACTIVITIES[idx], description: "2020 the world #{type} champion", price_per_day: 40, user: coach, address: "16 Villa Gaudelet, Paris")
   session.main_photo.attach(io: file, filename: "trainer.jpeg")
   4.times do |i|
     subfile_one = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 2}.jpeg"))
