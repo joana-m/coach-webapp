@@ -1,14 +1,21 @@
+<div class="cards">
 <% @coachsessions.each do |session| %>
-  <div class="card bg-dark text-white">
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= session.main_photo.url %> )">
     <%if session.main_photo.attached?%>
-      <div class="card-img"><%= cl_image_tag session.main_photo.key, height: 300, width: 400, crop: :fill %></div>
     <% else %>
-      <%= image_tag "calis_1.jpeg", class: "card-img" %>
+    <div  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3), url(<%= "calis_1.jpeg"%>))"></div>
+      <%#= image_tag "calis_1.jpeg", class: "card-img"%>
     <% end %>
-  <div class="card-img-overlay">
-    <h5 class="card-title"><%=session.session_name%></h5>
-    <p class="card-text"><%=session.description%></p>
-    <p class="card-text"><%=session.price_per_day%></p>
+    <div>
+      <h5 class="card-title"><%=session.session_name%></h5>
+      <p class="card-text"><%=session.description%></p>
+      <p class="card-text"><%=session.price_per_day%> $</p>
+    </div>
   </div>
-</div>
 <% end %>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div>
