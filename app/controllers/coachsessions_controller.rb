@@ -1,7 +1,11 @@
 class CoachsessionsController < ApplicationController
 
   def index
-    @coachsessions = CoachSession.where(type_of_activity: params[:activities])
+    if params[:activities]
+      @coachsessions = CoachSession.where(type_of_activity: params[:activities])
+    else
+      @coachsessions = CoachSession.all
+    end
 
     @markers = @coachsessions.geocoded.map do |coachsession|
       {

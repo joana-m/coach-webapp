@@ -1,3 +1,4 @@
+
 <div class="cards">
 <% @coachsessions.each do |session| %>
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= session.main_photo.url %> )">
@@ -13,7 +14,8 @@
     </div>
   </div>
 <% end %>
-
+</div>
+<br/>
 <div style="width: 100%; height: 600px;"
   data-controller="mapbox"
   data-mapbox-markers-value="<%= @markers.to_json %>"
