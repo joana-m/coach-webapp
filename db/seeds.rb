@@ -12,17 +12,71 @@ Booking.destroy_all
 CoachSession.destroy_all
 User.destroy_all
 
-p "Destroying data..."
+# p "Destroying data..."
 
-client = User.create!(email: "john@gmail.com", password: "123456")
-coach = User.create!(email: "mel@gmail.com", password: "123456")
-%w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
+client = User.first ? User.first : User.create!(email: "john@gmail.com", password: "123456")
+coach = User.last ? User.last : User.create!(email: "mel@gmail.com", password: "123456")
+
+# # seed 1
+%w[surfing weightlifting calisthenics yoga swimming dancing].each_with_index do |type, idx|
   file = File.open(Rails.root.join("app/assets/images/#{type}_1.jpeg"))
-  session = CoachSession.new(session_name: "Best personal #{type} trainer in town!", type_of_activity: CoachSession::ACTIVITIES[idx], description: "2020 the world crossfit champion", price_per_day: 40, user: coach)
+  session = CoachSession.new(session_name: "Best #{type} trainer in town!", type_of_activity: CoachSession::ACTIVITIES[idx], description: "2020 the world #{type} champion", price_per_day: 40, user: coach)
   session.main_photo.attach(io: file, filename: "trainer.jpeg")
-  5.times do |i|
-    file_two = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 2}.jpeg"))
-    session.additional_photos.attach(io: file_two, filename: "trainer.jpeg")
+  4.times do |i|
+    subfile_one = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 2}.jpeg"))
+    session.additional_photos.attach(io: subfile_one, filename: "trainer.jpeg")
+  end
+  session.save!
+  p session
+end
+
+# # seed 2
+%w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
+  file_two = File.open(Rails.root.join("app/assets/images/#{type}_2.jpeg"))
+  session = CoachSession.new(session_name: "Your #{type} coach in town!", type_of_activity: CoachSession::ACTIVITIES[idx], description: "10 years experience as a coach", price_per_day: 50, user: coach)
+  session.main_photo.attach(io: file_two, filename: "coach.jpeg")
+  4.times do |i|
+    subfile_two = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 3}.jpeg"))
+    session.additional_photos.attach(io: subfile_two, filename: "coach.jpeg")
+  end
+  session.save!
+  p session
+end
+
+# # # seed 3
+%w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
+  file_three = File.open(Rails.root.join("app/assets/images/#{type}_3.jpeg"))
+  session = CoachSession.new(session_name: "Train with me", type_of_activity: CoachSession::ACTIVITIES[idx], description: "#{type} is fun with me!", price_per_day: 45, user: coach)
+  session.main_photo.attach(io: file_three, filename: "coachtwo.jpeg")
+  4.times do |i|
+    subfile_three = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 3}.jpeg"))
+    session.additional_photos.attach(io: subfile_three, filename: "coachtwo.jpeg")
+  end
+  session.save!
+  p session
+end
+
+# # # seed 4
+%w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
+  file_four = File.open(Rails.root.join("app/assets/images/#{type}_4.jpeg"))
+  session = CoachSession.new(session_name: "Train with me", type_of_activity: CoachSession::ACTIVITIES[idx], description: "Doing #{type} is easy with me", price_per_day: 45, user: coach)
+  session.main_photo.attach(io: file_four, filename: "coachthree.jpeg")
+  4.times do |i|
+    subfile_four = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 2}.jpeg"))
+    session.additional_photos.attach(io: subfile_four, filename: "coachthree.jpeg")
+  end
+  session.save!
+  p session
+end
+
+# # seed 5
+%w[surfer weightlifter calis yoga swimmer dancer].each_with_index do |type, idx|
+  file_five = File.open(Rails.root.join("app/assets/images/#{type}_5.jpeg"))
+  session = CoachSession.new(session_name: "Join me for #{type} training", type_of_activity: CoachSession::ACTIVITIES[idx], description: "#{type} is my passion! ", price_per_day: 35, user: coach)
+  session.main_photo.attach(io: file_five, filename: "coachfour.jpeg")
+  4.times do |i|
+    subfile_five = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 2}.jpeg"))
+    session.additional_photos.attach(io: subfile_five, filename: "coachfour.jpeg")
   end
   session.save!
   p session
