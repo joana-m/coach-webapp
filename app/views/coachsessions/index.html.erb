@@ -1,12 +1,12 @@
 
 <div class="cards">
 <% @coachsessions.each do |session| %>
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= session.main_photo.url %> )">
-    <%if session.main_photo.attached?%>
-    <% else %>
-    <div  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3), url(<%= "calis_1.jpeg"%>))"></div>
+  <%if session.main_photo.attached?%>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= cl_image_path session.main_photo.key %> )">
+  <% else %>
+    <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3), url(<%= image_path "calisthenics_1.jpeg"%>))">
       <%#= image_tag "calis_1.jpeg", class: "card-img"%>
-    <% end %>
+  <% end %>
     <div>
       <h5 class="card-title"> <%= link_to  session.session_name , coachsession_path(session) %> </h5>
       <p class="card-text"><%=session.description%></p>

@@ -13,7 +13,7 @@
         <div class="photos">
           <div class="main-photo">
             <%# <%= cl_image_tag @coachsession.main_photo.key %>
-            <%= image_tag @coachsession.main_photo, width: 500, crop: :fill %>
+            <%= cl_image_tag @coachsession.main_photo.key, width: 500, crop: :fill %>
           </div>
 
           <div class="additional-photos">
