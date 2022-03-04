@@ -1,0 +1,13 @@
+
+<div class="container">
+<%= simple_form_for @coachsession, url: coachsessions_path do |f| %>
+<%= f.input :session_name %>
+<%= f.input :type_of_activity, collection: CoachSession::ACTIVITIES %>
+<%= f.input :price_per_day %>
+<%= f.input :description %>
+<%= f.input :address %>
+<%= f.input :main_photo, as: :file %>
+<%= f.input :additional_photos, as: :file, input_html: { multiple: true } %>
+<button class="btn-booking">Create the Session</button>
+<% end %>
+</div>
