@@ -11,6 +11,13 @@ class CoachSession < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  include PgSearch::Model
+  pg_search_scope :search_by_type_of_activity,
+    against: [ :type_of_activity ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
 
 # CoachSession.create(session_name:"Bench Press Training", type_of_activity:"Weight-Lifting", price_per_day: 30, user_id: 4)
