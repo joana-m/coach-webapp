@@ -1,8 +1,8 @@
 <div class="banner">
   <div class="container">
-    <h1>Find your <strong>COACH</strong> here, Ray</h1>
-    <%= simple_form_for :search, url: coachsessions_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
+    <h1>Find your <strong>coach</strong>.</h1>
+    <%# <%= simple_form_for :search, url: coachsessions_path, method: :get do |f| %>
+      <%# <div class="search-form-control form-group">
         <label for="activities">Choose an activity:</label>
         <select id="activity" name="activities">
           <option value="Calisthenics">Calisthenics</option>
@@ -12,10 +12,16 @@
           <option value="Weightlifting">Weightlifting</option>
           <option value="Yoga">Yoga</option>
         </select>
-        <button class="btn-flat" type="submit">Submit</button>
+        <button class="btn-flat" type="submit">Submit</button> %>
 
-        <%# <input class="form-control string required" type="text" name="search[query]" id="search_query" /> %>
+    <div>
+      <%= form_tag coachsessions_path, method: :get do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Surfing, Swimming, Weight-Lifting,...",
+          class:"searchbar-home"%>
+      <%= submit_tag "Search", class: "btn btn-search-home" %>
+      <% end %>
     </div>
-    <% end %>
-  </div>
 </div>

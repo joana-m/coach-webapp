@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_035314) do
   create_table "coach_sessions", force: :cascade do |t|
     t.string "session_name"
     t.string "type_of_activity"
-    t.string "description"
+    t.text "description"
     t.integer "price_per_day"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
