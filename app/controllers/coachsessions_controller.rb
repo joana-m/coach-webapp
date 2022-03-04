@@ -10,7 +10,8 @@ class CoachsessionsController < ApplicationController
     @markers = @coachsessions.geocoded.map do |coachsession|
       {
         lat: coachsession.latitude,
-        lng: coachsession.longitude
+        lng: coachsession.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { coachsession: coachsession })
       }
     end
   end
