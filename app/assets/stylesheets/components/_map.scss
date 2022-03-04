@@ -1,10 +1,43 @@
+@import "../config/fonts";
+
 .mapboxgl-popup {
-  max-width: 200px;
+  max-width: 150px;
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
   font-family: "Open Sans", sans-serif;
+  margin: 0px;
+}
+
+.mapboxgl-popup-content a {
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.mapboxgl-popup-content p {
+  color: white;
+}
+
+.pop-up-image {
+  width: 200px;
+  height: 150px;
+  margin: 0px;
+  object-fit: cover;
+}
+
+.pop-up-text {
+  padding: 10px;
+  width: 200px;
+  background-color: #FF715B;
+}
+
+.pop-up-text:hover {
+  padding: 10px;
+  width: 200px;
+  background-color: #ff4528;
+  transition: background 0.3s ease;
 }
 
 #map {
