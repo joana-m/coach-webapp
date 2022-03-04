@@ -1,8 +1,8 @@
 class CoachsessionsController < ApplicationController
 
   def index
-    if params[:activities]
-      @coachsessions = CoachSession.where(type_of_activity: params[:activities])
+    if params[:query]
+      @coachsessions = CoachSession.search_by_type_of_activity(params[:query])
     else
       @coachsessions = CoachSession.all
     end
