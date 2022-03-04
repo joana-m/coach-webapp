@@ -56,3 +56,43 @@
 .btn-booking p{
   margin-bottom: 0px;
 }
+
+.btn-search-home {
+  color: white;
+  padding: 4px 24px;
+  border-radius: 4px;
+  text-align: center;
+  align-items: center;
+  background: #FF715B;
+  transition: background 0.3s ease;
+  border: none;
+  height: 34px;
+}
+
+.btn-search-home:hover{
+  color: white;
+  padding: 4px 24px;
+  text-align: center;
+  align-items: center;
+  background: #fa5b43;
+  border: none;
+}
+
+.btn-search-all {
+  color: white;
+  padding: 4px 20px;
+  border-radius: 4px;
+  text-align: center;
+  align-items: center;
+  background: #FF715B;
+  transition: background 0.3s ease;
+  border: none;
+  height: 32px;
+  font-size: 12px;
+  box-shadow: 5px 2px 8px 0px rgba(0,0,0,0.19);
+}
+
+.btn-search-all:hover{
+  color: white;
+  background: #fa5b43;
+}

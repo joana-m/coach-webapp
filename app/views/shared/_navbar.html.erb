@@ -1,12 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <p>FindCoach</p>
-    <% end %>
+    <%= link_to "FindCoach", root_path, class: "navbar-brand" %>
 
     <div class="searchbar">
-       <%= simple_form_for :search, url: coachsessions_path, method: :get do |f| %>
-      <div>
+       <%# <%= simple_form_for :search, url: coachsessions_path, method: :get do |f| %>
+      <%# <div>
         <label for="activities">My activity:</label>
         <select id="activity" name="activities" placeholder="Choose your activity" class="dropdown">
           <option value="Calisthenics">Calisthenics</option>
@@ -18,7 +16,15 @@
         </select>
         <button type="submit", class="btn-searchbar">Find</button>
         <% end %>
-      </div>
+      <%# </div> %>
+      <%= form_tag coachsessions_path, method: :get do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Surfing, Swimming, Weight-Lifting,...",
+          class:"searchbar-all"%>
+      <%= submit_tag "Search", class: "btn btn-search-all" %>
+      <% end %>
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,14 +34,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+          <li class="nav-item">
+            <%= link_to "Become a coach", new_coachsession_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Creat a Session", new_coachsession_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
+            <%= link_to "My bookings", "#", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "rayhan.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

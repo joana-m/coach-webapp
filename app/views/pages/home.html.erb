@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container">
-    <h1>Find your <strong>COACH</strong> here, <%= @user.email %></h1>
+    <h1>Find your <strong>coach</strong>.</h1>
     <%# <%= simple_form_for :search, url: coachsessions_path, method: :get do |f| %>
       <%# <div class="search-form-control form-group">
         <label for="activities">Choose an activity:</label>
@@ -13,16 +13,15 @@
           <option value="Yoga">Yoga</option>
         </select>
         <button class="btn-flat" type="submit">Submit</button> %>
-    </div>
 
     <div>
       <%= form_tag coachsessions_path, method: :get do %>
-      <%= class:"searchbar-home", text_field_tag :query,
+      <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Find an activity"
-      %>
-      <%= submit_tag "Search", class: "btn btn-booking" %>
+          placeholder: "Surfing, Swimming, Weight-Lifting,...",
+          class:"searchbar-home"%>
+      <%= submit_tag "Search", class: "btn btn-search-home" %>
       <% end %>
     </div>
 </div>
