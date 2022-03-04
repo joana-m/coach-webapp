@@ -14,19 +14,19 @@
 
 # p "Destroying data..."
 
-client = User.first
+# client = User.first
 # # seed 1
 # %w[surfing weightlifting calisthenics yoga swimming dancing].each_with_index do |type, idx|
-# #   file = File.open(Rails.root.join("app/assets/images/#{type}_1.jpeg"))
-# #   session = CoachSession.new(session_name: "Best #{type} trainer in town!", type_of_activity: CoachSession::ACTIVITIES[idx], description: "2020 the world #{type} champion", price_per_day: 40, user: coach, address: "Ubud"
-# #   4.times do |i|
-# #     subfile_one = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 2}.jpeg"))
-# #     session.additional_photos.attach(io: subfile_one, filename: "trainer.jpeg")
-# #   end
+#   file = File.open(Rails.root.join("app/assets/images/#{type}_1.jpeg"))
+#   session = CoachSession.new(session_name: "Best #{type} trainer in town!", type_of_activity: CoachSession::ACTIVITIES[idx], description: "2020 the world #{type} champion", price_per_day: 40, user: coach, address: "Ubud")
+#   4.times do |i|
+#     subfile_one = File.open(Rails.root.join("app/assets/images/#{type}_#{i + 2}.jpeg"))
+#     session.additional_photos.attach(io: subfile_one, filename: "trainer.jpeg")
+#   end
 
-# #   session.save!
-# #   p session
-# # end
+#   session.save!
+#   p session
+# end
 
 # # seed 2
 # %w[surfing weightlifting calisthenics yoga swimming dancing].each_with_index do |type, idx|

@@ -17,20 +17,12 @@
 
     <div>
       <%= form_tag coachsessions_path, method: :get do %>
-      <%= text_field_tag :query,
+      <%= class:"searchbar-home", text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Find an activity"
       %>
       <%= submit_tag "Search", class: "btn btn-booking" %>
       <% end %>
-    </div>
-
-    <div>
-    <%= simple_form_for :search, url: coachsessions_path, method: :get do |f| %>
-      <%= f.input :query, collection: CoachSession::ACTIVITIES %>
-      <%= f.submit 'Search', class:"btn btn-booking" %>
-    <% end %>
-
     </div>
 </div>

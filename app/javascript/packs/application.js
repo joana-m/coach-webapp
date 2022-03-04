@@ -15,13 +15,13 @@ ActiveStorage.start()
 import "controllers"
 import "bootstrap"
 
-import $ from 'jquery'
-import 'select2'
+// import $ from 'jquery'
+// import 'select2'
 
-$(document).ready(function() {
-  $('#search_query').select2();
-});
+// $(document).ready(function() {
+//   $('#search_query').select2();
+// });
 
-$('#search_query').select2({
-  selectOnClose: true
-});
+// $('#search_query').select2({
+//   selectOnClose: true
+// });
