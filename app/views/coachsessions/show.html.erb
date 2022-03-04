@@ -36,21 +36,16 @@
         <div class="booking-card">
           <div class class="col-6">
             <div>
-              <p>Start date</p>
+            <%= simple_form_for [@coachsession, @booking], url: coachsession_bookings_path(@coachsession) do |f| %>
+            <%= f.input :date_start, as: :date, html5: true %>
+            <%= f.input :date_end, as: :date, html5: true %>
+            <p>Price per day:  $<%= @coachsession.price_per_day %></p>
+            <%= f.button :submit, 'Book now', class:"btn-booking" %>
+            <% end %>
             </div>
-            <div>
-              <p>End date</p>
-            </div>
-          </div>
 
           <div>
-            <p>Total amount</p>
           </div>
-
-          <div class="btn-booking">
-            <p>Book now</p>
-          </div>
-        </div>
 
     </div>
   </body>
