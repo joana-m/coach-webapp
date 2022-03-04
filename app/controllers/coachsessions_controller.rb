@@ -18,6 +18,7 @@ class CoachsessionsController < ApplicationController
 
   def show
     @coachsession = set_coachsession
+    @booking = Booking.new
   end
 
   def create
