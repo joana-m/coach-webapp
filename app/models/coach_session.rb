@@ -6,8 +6,7 @@ class CoachSession < ApplicationRecord
   validates :type_of_activity, inclusion: {in: ACTIVITIES}
 
   has_one_attached :main_photo
-  has_many_attached :additional_photos
-  validates :main_photo, :additional_photos, presence: true
+  validates :main_photo, presence: true
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
