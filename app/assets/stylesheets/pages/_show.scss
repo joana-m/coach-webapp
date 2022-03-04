@@ -1,32 +1,16 @@
-.intro h1 {
-  margin-bottom: 0px;
-}
 
 .intro p {
   margin-bottom: 15px;
   font-size: 12px;
+  text-align: center;
 }
 
 .intro {
-  margin: 15px 0px;
+  margin: 15px 10px;
 }
 
-.description {
-  margin-top: 10px;
-  font-weight: 300;
-  width: 400px;
-}
-
-.description h3 {
-  font-size: 15px;
-}
-
-.description p {
-  font-size: 12px;
-}
-
-.box-description {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+.profile-photo {
+  height: 350px;
+  width: 350px;
+  background-size: cover;
 }

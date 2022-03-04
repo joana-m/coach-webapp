@@ -1,53 +1,37 @@
-<html>
 
-  <body>
-
-    <div class="container">
-      <div class="intro">
-        <h1> <%= @coachsession.session_name %></h1>
-        <p><%= @coachsession.type_of_activity %></p>
-      </div>
-
-
-      <div>
-        <div class="photos">
-          <div class="main-photo">
-            <%# <%= cl_image_tag @coachsession.main_photo.key %>
-            <%= cl_image_tag @coachsession.main_photo.key, width: 500, crop: :fill %>
-          </div>
-
-          <div class="additional-photos">
-            <%# <%= cl_image_tag @coachsession.additional_photos.key %>
-            <%= image_tag "calisthenics_1.jpeg", width: 300, height: 200, crop: :fill %>
-            <%= image_tag "calisthenics_2.jpeg", width: 300, height: 200, crop: :fill %>
-            <%= image_tag "calisthenics_3.jpeg", width: 300, height: 200, crop: :fill %>
-            <%= image_tag "calisthenics_4.jpeg", width: 300, height: 200, crop: :fill %>
+<div>
+  <div class="intro">
+    <p> <%= @coachsession.type_of_activity %></p>
+  </div>
+  <div class="profile-details d-flex justify-content-center">
+    <div class="card mb-3 d-flex" style="max-width: 840px height:350px">
+      <div class="row g-0">
+        <div class="col-md-8">
+          <div class="img-fluid rounded-start profile-photo"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= cl_image_path @coachsession.main_photo.key %> )"></div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-body">
+            <h1 class="card-title"><%= @coachsession.session_name %></h1>
+            <br/>
+            <h5 class="card-title"><%=@coachsession.description%></h5>
+            <p class="card-text"><%=@coachsession.address%></p>
           </div>
         </div>
       </div>
-
-
-      <div class="box-description">
-        <div class="description" class="col-6">
-          <h3>Training with Nasi</h3>
-          <p><%= @coachsession.description %></p>
-        </div>
-
-        <div class="booking-card">
-          <div class class="col-6">
-            <div>
-            <%= simple_form_for [@coachsession, @booking], url: coachsession_bookings_path(@coachsession) do |f| %>
-            <%= f.input :date_start, as: :date, html5: true %>
-            <%= f.input :date_end, as: :date, html5: true %>
-            <p>Price per day:  $<%= @coachsession.price_per_day %></p>
-            <%= f.button :submit, 'Book now', class:"btn-booking" %>
-            <% end %>
-            </div>
-
-          <div>
-          </div>
-
     </div>
-  </body>
-
-</html>
+  </div>
+</div>
+<div class="d-flex justify-content-center pb-10">
+  <div class="booking-card">
+    <div class class="col-6 display">
+      <div>
+      <%= simple_form_for [@coachsession, @booking], url: coachsession_bookings_path(@coachsession) do |f| %>
+      <%= f.input :date_start, as: :date, html5: true %>
+      <%= f.input :date_end, as: :date, html5: true %>
+      <p>Price per day:  $<%= @coachsession.price_per_day %></p>
+      <%= f.button :submit, 'Book now', class:"btn-booking" %>
+      <% end %>
+      </div>
+    <div>
+  </div>
+</div>
