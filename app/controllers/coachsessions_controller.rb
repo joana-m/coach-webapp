@@ -20,10 +20,18 @@ class CoachsessionsController < ApplicationController
     @booking = Booking.new
   end
 
-  def new
+  def create
+    @coachsession = CoachSession.new(coachsession_params)
+    @coachsession.user = current_user
+    if @coachsession.save
+      redirect_to coachsessions_path(@coachsession)
+    else
+      render :new
+    end
   end
 
-  def create
+  def new
+    @coachsession = CoachSession.new
   end
 
   def edit
@@ -33,6 +41,9 @@ class CoachsessionsController < ApplicationController
   end
 
   def destroy
+    @coachsession = CoachSession.find(params[:id])
+    @coachsession.destroy
+    redirect_to coachsessions_path(@coachsession)
   end
 
   private
@@ -42,7 +53,7 @@ class CoachsessionsController < ApplicationController
   end
 
   def coachsession_params
-    params.require(:coachsession).permit(:session_name, :type_of_activity, :description, :price_per_day, :main_photo, :additional_photos)
+    params.require(:coach_session).permit(:session_name, :type_of_activity, :description, :price_per_day, :address, :main_photo, additional_photos: [])
   end
 
 end
