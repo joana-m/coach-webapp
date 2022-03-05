@@ -51,10 +51,22 @@
   background: #FF715B;
   transition: background 0.3s ease;
   border: none;
+  text-decoration: none;
+  width: 120px;
+  display: block;
+}
+
+.btn-booking:hover {
+  background-color: #ff4528;
+  color: white;
 }
 
 .btn-booking p{
   margin-bottom: 0px;
+}
+
+.btn-session {
+  width: unset;
 }
 
 .btn-search-home {
