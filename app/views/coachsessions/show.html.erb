@@ -15,11 +15,24 @@
 </div>
 <div class="row pb-10 profile-details">
   <div class="col-md-8">
-    <div class="card-body">
+    <div class="card-body" id="reviews">
       <h1 class="card-title"><%= @coachsession.session_name %></h1>
-      <h5 class="card-title"><%=@coachsession.description%></h5>
-      <p class="card-text"><i class="fas fa-map-marker-alt"></i>  <%=@coachsession.address%></p>
+      <h2><%= pluralize @coachsession.reviews.size, "review" %></h2>
+      <% if @coachsession.reviews.blank? %>
+        Help the coach to spread his experience.
+        Leave the first review for the session!
+      <% else %>
+        <% @coachsession.reviews.each do |review| %>
+          <p><%= review.content %></p>
+        <% end %>
+      <% end %>
     </div>
+      <div>
+      <%= simple_form_for([ @coachsession, @review ], url: coachsessions_path) do |f| %>
+      <%= f.input :content, as: :text %>
+      <button class="btn-booking">Review</button>
+      <% end %>
+      </div>
   </div>
   <div class="col-md-4 d-flex justify-content-end pe-0" >
     <div class="booking-card">

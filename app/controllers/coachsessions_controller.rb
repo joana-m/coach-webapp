@@ -19,6 +19,7 @@ class CoachsessionsController < ApplicationController
   def show
     @coachsession = set_coachsession
     @booking = Booking.new
+    @review = Review.new
   end
 
   def create
@@ -54,7 +55,7 @@ class CoachsessionsController < ApplicationController
   end
 
   def coachsession_params
-    params.require(:coach_session).permit(:session_name, :type_of_activity, :description, :price_per_day, :address, :main_photo, additional_photos: [])
+    params.require(:coach_session).permit(:session_name, :type_of_activity, :description, :price_per_day, :address, :main_photo)
   end
 
 end
