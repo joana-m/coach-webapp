@@ -41,12 +41,13 @@
 }
 
 #map {
-  width: 45vw;
+  width: 40vw;
   height: 100vh;
   top: 0;
   right:0;
   position: fixed;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 2px;
 }
 
 // .container {
