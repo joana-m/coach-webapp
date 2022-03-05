@@ -21,10 +21,10 @@
 <div class="row pb-10 profile-details">
   <div class="col-md-8">
     <div class="card-body" id="reviews">
-      <p><%= pluralize @coachsession.reviews.size, "review" %></p>
+      <p class="review"><%= pluralize @coachsession.reviews.size, "review" %></p>
       <% if @coachsession.reviews.blank? %>
-        Help the coach to spread his experience.
-        Leave the first review for the session!
+        <p class="review">Help the coach to spread his experience.
+        Leave the first review for the session!</p>
       <% else %>
         <% @coachsession.reviews.each do |review| %>
           <div class="notification">
