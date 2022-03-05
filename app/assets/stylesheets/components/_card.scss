@@ -1,3 +1,5 @@
+@import "../config/fonts";
+
 .cards {
   margin-top: 15px;
   display: grid;
@@ -63,4 +65,44 @@
   .cards {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+// Cards for bookings
+
+#dashboard-title {
+  margin-top: 30px;
+  margin-left: 30px;
+  color: #FF715B;
+}
+
+.booking-client-cards {
+  margin-left: 30px;
+}
+
+.booking-client-card {
+  box-shadow: 5px 2px 8px 0px rgba(255, 74, 2, 0.19);
+  width: 80vw;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  margin-bottom: 10px;
+}
+
+.booking-client-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: 0px;
+}
+
+.booking-client-card-text {
+  margin-left: 20px;
+}
+
+.booking-client-card-text h2 {
+  font-size: 26px;
+}
+
+.booking-client-card-text p {
+  font-size: 14px;
 }

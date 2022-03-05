@@ -1,1 +1,20 @@
-<h1>Dashboard</h1>
+<h1 id="dashboard-title">Your Bookings</h1>
+
+<div class="booking-client-cards">
+  <% @bookings.each do |booking| %>
+    <div class="booking-client-card">
+      <img class="booking-client-card-img" src="<%= cl_image_path booking.coach_session.main_photo.key %>">
+      <div class="booking-client-card-text">
+        <h2><%= booking.coach_session.session_name %></h2>
+        <p>From <%= booking.date_start.strftime %></p>
+        <p>To <%= booking.date_end.strftime %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<h1 id="dashboard-title">Your Inviations</h1>
+current_user.bookings
+if current_user.boats
+current_user.boats.each
+boat.bookings <<
