@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
   def create
-    @coachsession = Coachsession.find(params[:coachsession_id])
+    @coachsession = CoachSession.find(params[:coachsession_id])
     @review = Review.new(review_params)
     @review.coach_session = @coachsession
     if @review.save
-      redirect_to coachsession_path(@coachsession)
+      redirect_to coachsession_path(@coachsession, anchor: "review-#{@review.id}")
     else
       render 'coachsessions/show'
     end

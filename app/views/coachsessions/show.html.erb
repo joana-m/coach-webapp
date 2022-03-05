@@ -23,12 +23,12 @@
         Leave the first review for the session!
       <% else %>
         <% @coachsession.reviews.each do |review| %>
-          <p><%= review.content %></p>
+          <p id="review-<%= review.id %>"><%= review.content %></p>
         <% end %>
       <% end %>
     </div>
       <div>
-      <%= simple_form_for([ @coachsession, @review ], url: coachsessions_path) do |f| %>
+      <%= simple_form_for([ @coachsession, @review ], url: coachsession_reviews_path(@coachsession), remote: true) do |f| %>
       <%= f.input :content, as: :text %>
       <button class="btn-booking">Review</button>
       <% end %>
