@@ -7,7 +7,7 @@
   // grid-gap: 16px;
   flex-grow: 1;
   width: 50%;
-  margin: 10px;
+  margin: 25px;
 }
 
 .card-category {
@@ -25,11 +25,27 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   // border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 10px;
+  margin: 20px;
+  border-radius: 2px;
 }
 .cards a {
   text-decoration: none;
   color: white;
+}
+
+.card-description {
+  font-size: 12px;
+  margin: 15px;
+}
+
+.card-title {
+  font-size: 20px;
+  margin: 20px;
+}
+
+.card-location {
+  font-size: 12px;
+  margin: 15px;
 }
 
 // Smallest device
