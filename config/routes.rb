@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :coachsessions do
     resources :bookings, only: [:create]
   end
-  resources :bookings, only: [:destroy, :index]
+  resources :bookings, only: [:destroy, :index, :create]
 end

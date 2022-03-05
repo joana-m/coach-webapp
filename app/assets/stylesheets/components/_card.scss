@@ -71,6 +71,7 @@
 
 #dashboard-title {
   margin-top: 30px;
+  margin-bottom: 30px;
   margin-left: 30px;
   color: #FF715B;
 }
@@ -105,4 +106,13 @@
 
 .booking-client-card-text p {
   font-size: 14px;
+}
+
+.booking-client-status-button {
+  margin-left: 400px
+}
+
+.status-button {
+  text-decoration: none;
+  padding: 15px;
 }
