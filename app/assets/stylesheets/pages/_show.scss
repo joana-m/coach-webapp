@@ -10,7 +10,11 @@
 }
 
 .profile-photo {
-  height: 350px;
-  width: 350px;
+  height: 500px;
+  width: 100%;
   background-size: cover;
+}
+
+.profile-details {
+  margin: auto 20px;
 }

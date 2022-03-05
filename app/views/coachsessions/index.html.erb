@@ -1,24 +1,28 @@
-<div class="container">
-  <div class="card-wrapper">
-    <div class="cards">
+<div class="card-wrapper">
+  <div class="cards">
     <% @coachsessions.each do |session| %>
-      <%if session.main_photo.attached?%>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= cl_image_path session.main_photo.key %> )">
-      <% else %>
-        <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3), url(<%= image_path "calisthenics_1.jpeg"%>))">
-          <%#= image_tag "calis_1.jpeg", class: "card-img"%>
+      <%= link_to coachsession_path(session) do %>
+        <%if session.main_photo.attached?%>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= cl_image_path session.main_photo.key %> )">
+            <div>
+              <h5 class="card-title"> <%= session.session_name %> </h5>
+              <p class="card-text"><%=session.price_per_day%> $</p>
+            </div>
+          </div>
+        <% else %>
+          <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3), url(<%= image_path "calisthenics_1.jpeg"%>))">
+            <div>
+              <h5 class="card-title"> <%= session.session_name %> </h5>
+              <p class="card-text"><%=session.price_per_day%> $</p>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-        <div>
-          <h5 class="card-title"> <%= link_to  session.session_name , coachsession_path(session) %> </h5>
-          <p class="card-text"><%=session.price_per_day%> $</p>
-        </div>
-      </div>
     <% end %>
-    </div>
-    <div id="map"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+  </div>
+  <div id="map"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
