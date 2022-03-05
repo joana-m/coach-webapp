@@ -17,24 +17,36 @@
       </div>
     </div>
   </div>
-  <div class="row pb-10 profile-details">
-    <div class="col-md-8">
-      <div class="card-body">
-        <h1 class="card-title"><%= @coachsession.session_name %></h1>
-        <h5 class="card-title"><%=@coachsession.description%></h5>
-        <p class="card-text"><i class="fas fa-map-marker-alt"></i>  <%=@coachsession.address%></p>
-      </div>
-    </div>
-    <div class="col-md-4 d-flex justify-content-end pe-0" >
-      <div class="booking-card">
-        <%= simple_form_for [@coachsession, @booking], url: coachsession_bookings_path(@coachsession) do |f| %>
-          <%= f.input :date_start, as: :date, html5: true %>
-          <%= f.input :date_end, as: :date, html5: true %>
-          <p>Price per day:  $<%= @coachsession.price_per_day %></p>
-          <%= f.button :submit, 'Book now', class:"btn-booking" %>
+</div>
+<div class="row pb-10 profile-details">
+  <div class="col-md-8">
+    <div class="card-body" id="reviews">
+      <h1 class="card-title"><%= @coachsession.session_name %></h1>
+      <h2><%= pluralize @coachsession.reviews.size, "review" %></h2>
+      <% if @coachsession.reviews.blank? %>
+        Help the coach to spread his experience.
+        Leave the first review for the session!
+      <% else %>
+        <% @coachsession.reviews.each do |review| %>
+          <p id="review-<%= review.id %>"><%= review.content %></p>
         <% end %>
-        <%# <%= link_to("Reviews", meetings_url(:anchor => "reviews")), class:"btn btn-booking" %>
+      <% end %>
+    </div>
+      <div>
+      <%= simple_form_for([ @coachsession, @review ], url: coachsession_reviews_path(@coachsession), remote: true) do |f| %>
+      <%= f.input :content, as: :text %>
+      <button class="btn-booking">Review</button>
+      <% end %>
       </div>
+  </div>
+  <div class="col-md-4 d-flex justify-content-end pe-0" >
+    <div class="booking-card">
+      <%= simple_form_for [@coachsession, @booking], url: coachsession_bookings_path(@coachsession) do |f| %>
+        <%= f.input :date_start, as: :date, html5: true %>
+        <%= f.input :date_end, as: :date, html5: true %>
+        <p>Price per day:  $<%= @coachsession.price_per_day %></p>
+        <%= f.button :submit, 'Book now', class:"btn-booking" %>
+      <% end %>
     </div>
   </div>
 </div>

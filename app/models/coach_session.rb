@@ -1,6 +1,7 @@
 class CoachSession < ApplicationRecord
   ACTIVITIES = ['Surfing', 'Weight-Lifting', 'Calisthenics', "Yoga", "Swimming", "Dancing"]
   belongs_to :user
+  has_many :reviews, dependent: :destroy
   validates :session_name, :type_of_activity, :price_per_day, presence: true
   validates :price_per_day, numericality: true
   validates :type_of_activity, inclusion: {in: ACTIVITIES}
