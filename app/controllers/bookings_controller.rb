@@ -13,13 +13,16 @@ class BookingsController < ApplicationController
     # set the session id to the booking
     @booking.coach_session = @coachsession
     if @booking.save
-      redirect_to coachsession_bookings_path
+      redirect_to bookings_path
     else
       render 'coachsessions/show'
     end
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path
   end
 
   private

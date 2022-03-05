@@ -2,19 +2,36 @@
 
 <div class="booking-client-cards">
   <% @bookings.each do |booking| %>
-    <div class="booking-client-card">
-      <img class="booking-client-card-img" src="<%= cl_image_path booking.coach_session.main_photo.key %>">
-      <div class="booking-client-card-text">
-        <h2><%= booking.coach_session.session_name %></h2>
-        <p>From <%= booking.date_start.strftime %></p>
-        <p>To <%= booking.date_end.strftime %></p>
+    <% unless @user.id === booking.coach_session.user_id  %>
+      <div class="booking-client-card">
+        <img class="booking-client-card-img" src="<%= cl_image_path booking.coach_session.main_photo.key %>">
+        <div class="booking-client-card-text">
+          <h2><%= booking.coach_session.session_name %></h2>
+          <p>From <%= booking.date_start.strftime %></p>
+          <p>To <%= booking.date_end.strftime %></p>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 
 <h1 id="dashboard-title">Your Inviations</h1>
-current_user.bookings
-if current_user.boats
-current_user.boats.each
-boat.bookings <<
+
+<div class="booking-client-cards">
+  <% @user.bookings.each do |booking| %>
+    <% if @user.id === booking.coach_session.user_id  %>
+      <div class="booking-client-card">
+        <img class="booking-client-card-img" src="<%= cl_image_path booking.coach_session.main_photo.key %>">
+        <div class="booking-client-card-text">
+          <h2><%= booking.coach_session.session_name %></h2>
+          <p>From <%= booking.date_start.strftime %></p>
+          <p>To <%= booking.date_end.strftime %></p>
+        </div>
+        <div class="booking-client-status-button">
+          <p><%= link_to "ACCEPT", booking_path(booking), class: "btn-booking status-button", method: :delete %></p>
+          <p><%= link_to "REJECT", booking_path(booking), class: "btn-booking status-button", method: :delete %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
