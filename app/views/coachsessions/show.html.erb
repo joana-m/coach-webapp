@@ -21,20 +21,25 @@
 <div class="row pb-10 profile-details">
   <div class="col-md-8">
     <div class="card-body" id="reviews">
-      <h1 class="card-title"><%= @coachsession.session_name %></h1>
-      <h2><%= pluralize @coachsession.reviews.size, "review" %></h2>
+      <p><%= pluralize @coachsession.reviews.size, "review" %></p>
       <% if @coachsession.reviews.blank? %>
         Help the coach to spread his experience.
         Leave the first review for the session!
       <% else %>
         <% @coachsession.reviews.each do |review| %>
-          <p id="review-<%= review.id %>"><%= review.content %></p>
+          <div class="notification">
+            <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+            <div class="notification-content">
+              <p><small>14th January</small></p>
+              <p id="review-<%= review.id %>"><%= review.content %></p>
+            </div>
+          </div>
         <% end %>
       <% end %>
     </div>
       <div>
       <%= simple_form_for([ @coachsession, @review ], url: coachsession_reviews_path(@coachsession), remote: true) do |f| %>
-      <%= f.input :content, as: :text %>
+      <%= f.input :content, as: :text, label: "Share your experience" %>
       <button class="btn-booking">Review</button>
       <% end %>
       </div>
